@@ -13,80 +13,92 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 -->
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-             xmlns:tools="http://schemas.android.com/tools"
-             android:layout_width="match_parent"
-             android:layout_height="match_parent"
-             tools:context="io.github.webbluetoothcg.bletestperipheral.HeartRateServiceFragment">
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context="io.github.webbluetoothcg.bletestperipheral.HeartRateServiceFragment">
 
     <TextView
-            android:id="@+id/textView_serviceName"
-            android:text="@string/heartRateServiceName"
-            android:textAppearance="@style/subheader"
-            android:gravity="center_vertical"
-            android:layout_width="wrap_content"
-            android:layout_height="48dp"/>
-    <GridLayout
-            android:id="@+id/gridLayout_characteristicsValues"
-            android:layout_width="fill_parent"
+        android:id="@+id/textView_serviceName"
+        android:layout_width="wrap_content"
+        android:layout_height="48dp"
+        android:gravity="center_vertical"
+        android:text="@string/heartRateServiceName"
+        android:textAppearance="@style/subheader" />
+
+    <TextView
+        android:id="@+id/label_bodySensorLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:text="@string/label_bodySensorLocation"
+        android:textAppearance="@style/label" />
+
+    <Spinner
+        android:id="@+id/spinner_bodySensorLocation"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:entries="@array/location_values" />
+
+    <TextView
+        android:id="@+id/label_heartRateMeasurementValue"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:text="@string/label_heartRateMeasurementValue"
+        android:textAppearance="@style/label" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <SeekBar
+            android:id="@+id/seekBar_heartRateMeasurementValue"
+            android:layout_weight="5"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:rowCount="2"
-            android:columnCount="3"
-            android:layout_below="@id/textView_serviceName">
+            android:max="255" />
+
         <TextView
-                android:id="@+id/label_bodySensorLocation"
-                android:text="@string/label_bodySensorLocation"
-                android:textAppearance="@style/label"
-                android:layout_gravity="fill"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:id="@+id/label_heartRateMeasurementValue"
-                android:text="@string/label_heartRateMeasurementValue"
-                android:textAppearance="@style/label"
-                android:layout_gravity="fill"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <TextView
-                android:id="@+id/label_energyExpended"
-                android:text="@string/label_energyExpended"
-                android:textAppearance="@style/label"
-                android:layout_gravity="fill"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <Spinner
-                android:id="@+id/spinner_bodySensorLocation"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:entries="@array/location_values"/>
-        <EditText
-                android:id="@+id/editText_heartRateMeasurementValue"
-                android:ems="3"
-                android:maxLength="3"
-                android:gravity="center"
-                android:inputType="number"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-        <EditText
-                android:id="@+id/editText_energyExpended"
-                android:ems="4"
-                android:maxLength="5"
-                android:gravity="center"
-                android:inputType="number"
-                android:layout_columnWeight="1"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
-    </GridLayout>
-    <Button
-            android:id="@+id/button_heartRateMeasurementNotify"
-            android:textColor="@color/accent"
-            android:layout_width="wrap_content"
+            android:id="@+id/textView_currentHeartRateMeasurementValue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/notify"
-            android:layout_below="@id/gridLayout_characteristicsValues"/>
-</RelativeLayout>
+            android:textAppearance="@style/label" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/label_energyExpended"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_columnWeight="1"
+        android:layout_gravity="fill"
+        android:text="@string/label_energyExpended"
+        android:textAppearance="@style/label" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <SeekBar
+            android:id="@+id/seekBar_energyExpendedValue"
+            android:layout_weight="5"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:max="65535" />
+
+        <TextView
+            android:id="@+id/textView_currentEnergyExpendedValue"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textAppearance="@style/label" />
+    </LinearLayout>
+</LinearLayout>
